@@ -15,4 +15,7 @@
   border: 1px solid #ff0b37;
   border-radius: 5px;
   font-size: 18px;
+  margin-left: 30px;
+  height: 32px;
+  align-self: center;
 }
