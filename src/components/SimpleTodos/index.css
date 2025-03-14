@@ -10,5 +10,24 @@
 
 .card-container {
   background-color: #ffffff;
-  padding: 40px;
+  padding: 20px;
+  margin: 20px;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  align-self: center;
+  justify-self: center;
+  color: #ff8542;
+}
+.unordered_container {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: space-between;
+  list-style: none;
 }
