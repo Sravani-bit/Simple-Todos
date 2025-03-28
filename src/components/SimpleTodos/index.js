@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {v4 as uuidv4} from 'uuid'
 import TodoItem from '../TodoItem'
 
 import './index.css'
@@ -40,7 +41,23 @@ const initialTodosList = [
 
 // Write your code here
 class SimpleTodos extends Component {
-  state = {todoItemList: initialTodosList}
+  state = {todoItemList: initialTodosList, newTodo: ''}
+
+  onChangeInput = event => {
+    this.setState({newTodo: event.target.value})
+  }
+
+  onClickAdd = () => {
+    const {newTodo} = this.state
+    const todoItem = {
+      id: uuidv4,
+      title: newTodo,
+    }
+
+    this.setState(prevState => ({
+      todoItemList: [...prevState.todoItemList, todoItem],
+    }))
+  }
 
   deleteTodo = id => {
     const {todoItemList} = this.state
@@ -55,6 +72,20 @@ class SimpleTodos extends Component {
       <div className="bg-container">
         <div className="card-container">
           <h1>Simple Todos</h1>
+          <div className="input-container">
+            <input
+              type="text"
+              onChange={this.onChangeInput}
+              className="input"
+            />
+            <button
+              type="button"
+              onClick={this.onClickAdd}
+              className="add-button"
+            >
+              Add
+            </button>
+          </div>
           <ul>
             {todoItemList.map(eachTodo => (
               <TodoItem
